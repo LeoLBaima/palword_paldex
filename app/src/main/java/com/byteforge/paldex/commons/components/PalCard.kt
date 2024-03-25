@@ -2,6 +2,8 @@ package com.byteforge.paldex.commons.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -11,9 +13,11 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,21 +61,35 @@ fun PalCard(
             .padding(8.dp)
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(16.dp)
         ) {
-            Row {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(),
+            ) {
                 Column(
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
                 ) {
                     Text(
                         text = if (id < 100) "#0$id" else "#$id",
                         fontSize = 12.sp,
-                        color = BlackF8
+                        color = BlackF8,
+                        fontWeight = FontWeight.Bold,
                     )
-                    Text(text = name, fontSize = 18.sp, color = Color.White)
-                    Row {
+                    Text(
+                        text = name,
+                        fontSize = 18.sp,
+                        color = Color.White,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Row(verticalAlignment = Alignment.Bottom) {
                         types.forEach { type ->
                             TypeCard(type = type)
+                            if (types.size > 1) Spacer(modifier = Modifier.size(8.dp))
                         }
                     }
                 }
@@ -79,8 +97,7 @@ fun PalCard(
                     model = image,
                     contentDescription = "Image of $name",
                     modifier = Modifier
-                        .weight(1f)
-                        .size(125.dp)
+                        .size(72.dp)
                         .clip(CircleShape)
                 )
             }

@@ -25,7 +25,7 @@ class HomeViewModel @Inject constructor(private val palRepository: PalRepository
         uiState.value = UIState.Loading
         //Using RxJava to simulate a network call just to see the loading state
         val disposable = Observable.fromCallable { palRepository.getPals() }
-            .delay(0, TimeUnit.SECONDS)
+            .delay(5, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
