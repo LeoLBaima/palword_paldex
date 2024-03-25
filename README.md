@@ -27,4 +27,4 @@ To get a local copy up and running, follow these steps:
 
 ## GIF
 
-<img src="/test.gif" alt="Gif image test">
+<img src="/test.gif" alt="Gif image test" width="250" height="500">
