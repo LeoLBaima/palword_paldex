@@ -27,7 +27,7 @@ fun Modifier.shimmerEffect(): Modifier = composed {
         targetValue = 2 * size.width.toFloat(),
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = 1250
+                durationMillis = 1000
             )
         ), label = ""
     )
