@@ -9,9 +9,9 @@ The project follows the MVVM architecture with clean architecture principles. It
 
 ## Technologies Used
 
-- Kotlin: The main programming language used in this project.
-- Gradle: The build automation tool used.
-- Jetpack Compose: The modern toolkit used for building the native Android UI.
+- Kotlin
+- Gradle
+- Jetpack Compose
 
 ## Getting Started
 
